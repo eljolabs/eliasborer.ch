@@ -24,7 +24,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^7.3.2",
-    "lucide-react": "^1.43.0",
+    "lucide-react": "^1.45.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "recharts": "^3.10.1",
