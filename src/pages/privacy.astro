@@ -1,0 +1,30 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const githubHosting = import.meta.env.PUBLIC_HOSTING_PROVIDER === 'github-pages';
+---
+<SiteLayout title="Privacy | Elias Borer" description="Privacy information and contact details for Elias Borer's personal website." canonicalPath="privacy/">
+  <main class="container section privacy-page">
+    <a href={base} class="text-link">Back to profile</a>
+    <h1>Privacy</h1>
+    <p>Last updated: 13 September 2026</p>
+    <h2>Contact</h2>
+    <p>Elias Borer, Basel, Switzerland. For questions about this website or your personal data: <a href="mailto:hello@eliasborer.ch">hello@eliasborer.ch</a>.</p>
+    <h2>Visiting this website</h2>
+    <p>This is a personal CV website. It uses no analytics, advertising trackers, embedded social feeds or contact forms. Fonts and chart data are served from the same site; opening the page does not request fonts from Google or data from a market-data API.</p>
+    {githubHosting ? <p>The website is hosted by GitHub Pages. GitHub processes technical request information, including IP addresses, to operate and secure its service. Details are available in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noreferrer">GitHub Privacy Statement</a>.</p> : <p>This version is hosted on a server operated for this website. Technical request information such as IP address, requested URL, time and browser information may be processed to deliver and secure the site. This is not used for advertising or visitor profiling.</p>}
+    <h2>Browser storage</h2>
+    <p>Your light or dark theme preference is saved in your browser's local storage under the key “theme”. You can remove it through your browser settings. Portfolio allocations are kept only in the current page session and are not submitted to a server.</p>
+    <h2>Email and external links</h2>
+    <p>If you email me, I use the information you provide to respond and manage our correspondence. LinkedIn, GitHub and data-source links open external websites only when selected; those providers apply their own privacy policies.</p>
+    <h2>Your information</h2>
+    <p>You can contact me to request information about personal data I hold about you, or ask for correction or deletion. Applicable legal requirements may affect how a request can be fulfilled.</p>
+  </main>
+</SiteLayout>
+<style>
+  .privacy-page { max-width: 820px; }
+  h1 { margin-top: 28px; }
+  h2 { margin-top: 28px; margin-bottom: 10px; }
+  p { margin-block: 12px; }
+  p a { text-decoration: underline; overflow-wrap: anywhere; }
+</style>

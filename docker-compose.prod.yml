@@ -1,0 +1,17 @@
+services:
+  website:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-https://eliasborer.ch}
+        BASE_PATH: ${BASE_PATH:-/}
+    ports:
+      - "${HOST_BIND_IP:-127.0.0.1}:8080:8080"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

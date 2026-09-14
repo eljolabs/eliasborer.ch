@@ -1,0 +1,307 @@
+:root {
+  --lab-bonds: #648863;
+  --lab-cash: #b69557;
+}
+.stress-presets { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border: 1px solid var(--line); border-radius: 4px; margin-top: 18px; padding: 0; overflow: hidden; }
+.stress-presets label { position: relative; cursor: pointer; text-align: center; font-size: 11px; }
+.stress-presets input { position: absolute; opacity: 0; width: 100%; height: 100%; left: 0; cursor: pointer; }
+.stress-presets span { display: block; padding: 9px 4px; }
+.stress-presets input:checked + span { background: var(--cyan); color: var(--surface); }
+.stress-presets input:focus-visible + span { outline: 2px solid var(--text); outline-offset: -3px; }
+.stress-assumption, .stress-axis { font-size: 10px; color: var(--muted); margin-top: 9px; }
+.stress-axis { text-align: center; margin-top: 0; }
+.lab-metrics .terminal-metric > strong { overflow-wrap: anywhere; }
+html[data-theme="dark"] {
+  --lab-bonds: #a2bc95;
+  --lab-cash: #dfbd78;
+}
+.lab-profile-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 10px;
+}
+.lab-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.lab-header h2 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.lab-header h2 > span {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--cyan);
+  font-size: 15px;
+  margin-right: 5px;
+}
+.lab-header p {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 5px;
+}
+.lab-header .icon-btn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.allocation-controls {
+  display: grid;
+  gap: 4px;
+  margin-block: 22px 24px;
+}
+.allocation-row {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 14px;
+  min-height: 36px;
+}
+.allocation-row > label {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  align-items: center;
+}
+.allocation-row > label > i {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 1px;
+  background: var(--asset-color);
+}
+.allocation-row small {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.allocation-row output {
+  font:
+    500 14px "IBM Plex Mono",
+    monospace;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.allocation-row output > span {
+  font-size: 11px;
+  margin-left: 2px;
+  color: var(--muted);
+}
+.stocks {
+  --asset-color: var(--cyan);
+}
+.bonds {
+  --asset-color: var(--lab-bonds);
+}
+.cash {
+  --asset-color: var(--lab-cash);
+}
+.allocation-row input[type="range"] {
+  appearance: none;
+  min-width: 0;
+  width: 100%;
+  height: 32px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+  accent-color: var(--asset-color);
+}
+.allocation-row input::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.allocation-row input::-webkit-slider-thumb {
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: var(--asset-color);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--asset-color);
+  margin-top: -5.5px;
+}
+.allocation-row input::-moz-range-track {
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.allocation-row input::-moz-range-thumb {
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  background: var(--asset-color);
+  border: 2px solid var(--surface);
+  box-shadow: 0 0 0 1px var(--asset-color);
+}
+.allocation-row input:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.lab-chart-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--muted);
+}
+.lab-chart-heading strong {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+.lab-chart {
+  height: 185px;
+}
+.portfolio-lab .terminal-metrics {
+  padding-block: 17px;
+  border-bottom: 0;
+  gap: 10px;
+}
+.lab-metrics .terminal-metric {
+  border: 0;
+  padding: 0;
+}
+.lab-metrics .terminal-metric > span {
+  font-size: 10px;
+}
+.lab-metrics .terminal-metric > strong {
+  font-size: 22px;
+}
+.lab-metrics .terminal-metric > small {
+  font-size: 9px;
+}
+.lab-method {
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+}
+.lab-method summary {
+  width: fit-content;
+  min-height: 28px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.lab-method p {
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+.lab-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 12px;
+  font-size: 10px;
+}
+.lab-sources a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  color: var(--cyan);
+}
+@media (max-width: 600px) {
+  .lab-profile-heading {
+    font-size: 9px;
+    margin-bottom: 25px;
+  }
+  .lab-profile-heading > span:last-child {
+    display: none;
+  }
+  .allocation-row {
+    grid-template-columns: 106px minmax(0, 1fr) 38px;
+    gap: 10px;
+  }
+  .allocation-row > label {
+    font-size: 11px;
+  }
+  .lab-metrics .terminal-metric > span {
+    font-size: 9px;
+  }
+  .lab-metrics .terminal-metric > strong {
+    font-size: 19px;
+  }
+  .lab-metrics .terminal-metric > small {
+    font-size: 8px;
+  }
+}
+@media (max-width: 360px) {
+  .lab-header h2 {
+    font-size: 16px;
+  }
+  .lab-header h2 > span {
+    font-size: 12px;
+    margin-right: 2px;
+  }
+  .allocation-row {
+    grid-template-columns: 99px minmax(0, 1fr) 36px;
+    gap: 7px;
+  }
+  .lab-metrics .terminal-metric > strong {
+    font-size: 17px;
+  }
+  .lab-metrics .terminal-metric:last-child > strong {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .lab-metrics .terminal-metric > span {
+    font-size: 8px;
+  }
+}
+@media print {
+  .lab-profile-heading {
+    display: none;
+  }
+}
+
+.div-assets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+.div-assets > div { display: flex; align-items: center; gap: 7px; font-size: 11px; }
+.div-assets strong { margin-left: auto; font: 500 13px "IBM Plex Mono", monospace; }
+.div-swatch { width: 6px; height: 6px; flex-shrink: 0; }
+.div-swatch.equity { background: var(--cyan); }
+.div-swatch.bond { background: var(--lab-bonds); }
+.div-assumption { color: var(--muted); font-size: 9px; margin-top: 8px; }
+.div-controls { gap: 19px; margin-block: 22px; }
+.div-control-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 12px; }
+.div-control-heading output { font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.div-control-heading output span { color: var(--muted); font-size: 10px; font-weight: 400; }
+.div-range { display: block; min-height: 32px; }
+.div-allocation { display: flex; height: 3px; width: 100%; overflow: hidden; }
+.div-allocation span:first-child { background: var(--cyan); }
+.div-allocation span:last-child { background: var(--lab-bonds); }
+.div-scale { display: flex; justify-content: space-between; color: var(--muted); font-size: 9px; }
+.div-chart-label, .div-axis { font-size: 10px; color: var(--muted); }
+.div-chart { height: 220px; }
+.div-axis { text-align: center; margin-top: 4px; }
+.div-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 16px; font-size: 9px; margin-top: 10px; color: var(--muted); }
+.div-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.div-legend i { width: 14px; border-top: 2px solid var(--cyan); }
+.div-legend span:last-child i { border-top: 1px dashed var(--muted); }
+.diversification-lab .div-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); margin-top: 16px; border-top: 1px solid var(--line); }
+.diversification-lab .div-metrics .terminal-metric > strong { font-size: 28px; white-space: nowrap; }
+.div-metrics em { font-size: 14px; font-style: normal; font-weight: 400; color: var(--muted); margin-left: 4px; }
+.div-tooltip { background: var(--surface); color: var(--text); border: 1px solid var(--line); border-radius: 4px; padding: 9px 12px; font-size: 11px; }
+.div-tooltip span, .div-tooltip strong { display: block; }
+@media (max-width: 360px) {
+  .div-assets { gap: 10px; }
+  .div-assets > div { font-size: 10px; gap: 4px; }
+  .div-assets strong { font-size: 11px; }
+  .div-control-heading { font-size: 11px; }
+  .div-control-heading output { font-size: 12px; }
+  .div-control-heading output span { font-size: 9px; }
+  .diversification-lab .div-metrics .terminal-metric > strong { font-size: 25px; }
+}

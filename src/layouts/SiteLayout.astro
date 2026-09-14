@@ -1,0 +1,36 @@
+---
+import '../styles/global.css';
+import '../styles/terminal.css';
+import '../styles/portfolio.css';
+interface Props { title?: string; description?: string; canonicalPath?: string; noindex?: boolean }
+const { title = 'Elias Borer | Finance, Risk & Data', description = "Elias Borer: MACFin master's student at HSG, working in operational risk at Baloise Asset Management. Experience, research and personal projects in finance and data.", canonicalPath = '', noindex = false } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const canonical = new URL(`${base}${canonicalPath}`, Astro.site).href;
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#fcfcfb" />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}favicon-terminal-v2.png`} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon-terminal-v2.svg`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon-terminal-v2.png`} />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = saved === 'dark' || saved === 'light'
+          ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      } catch { /* Keep the readable default if storage is unavailable. */ }
+    </script>
+  </head>
+  <body><slot /></body>
+</html>

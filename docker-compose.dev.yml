@@ -1,0 +1,13 @@
+services:
+  website-dev:
+    image: node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    # Compose owns this process; persisted host PIDs are invalid after container restarts.
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0 --ignore-lock"
+    environment:
+      ASTRO_TELEMETRY_DISABLED: '1'
+    ports:
+      - "${DEV_BIND_IP:-127.0.0.1}:4321:4321"
